@@ -43,12 +43,12 @@ jobs:
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: ${{ secrets.SMTP_SERVER }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.EMAIL_USERNAME }}
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: viplove.bisen29@gmail.com
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Playwright Test Report
-          to: ${{ secrets.EMAIL_TO }}
-          from: ${{ secrets.EMAIL_USERNAME }}
+          to: viplove.bisen29@gmail.com
+          from: viplove.bisen29@gmail.com
           body: Playwright test execution completed. Report attached.
           attachments: playwright-report/index.html
