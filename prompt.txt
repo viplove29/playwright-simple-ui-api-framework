@@ -1,0 +1,97 @@
+Create a complete Playwright End-to-End Automation Framework project and provide it as a downloadable ZIP file.
+
+Framework Requirements:
+
+PROJECT SETUP:
+- Node.js Playwright project
+- Use @playwright/test latest stable version
+- Must run locally and in GitHub Actions
+- Must support headed and headless mode
+- Use dotenv for environment variables
+- Use BASE_URL from env
+- Include .env.example file
+
+TESTING:
+1) UI Test using SauceDemo (https://www.saucedemo.com)
+   - Login test
+   - Username: standard_user
+   - Password: secret_sauce
+   - Validate successful login (URL contains /inventory)
+   - Use Page Object Model
+
+2) API Test using:
+   https://jsonplaceholder.typicode.com/posts/1
+   - Validate status 200
+   - Validate id = 1
+   - Handle SSL issues (ignoreHTTPSErrors: true)
+
+FRAMEWORK STRUCTURE:
+
+playwright-automation-framework/
+│
+├── pages/
+│   └── LoginPage.js
+│
+├── tests/
+│   ├── ui.spec.js
+│   └── api.spec.js
+│
+├── playwright.config.js
+├── package.json
+├── README.md
+├── .env.example
+├── .gitignore
+└── .github/workflows/playwright.yml
+
+CONFIGURATION:
+- baseURL configured via env
+- dotenv properly loaded
+- Headless true by default
+- Ability to run headed via CLI
+- HTML reporting enabled
+- Report stored in playwright-report/
+
+REPORTING:
+- Playwright HTML reporter
+- Save report in playwright-report folder
+- Script to show report
+
+EMAIL REPORTING:
+- GitHub Actions must send email after execution
+- Attach HTML report (index.html)
+- Use SMTP configuration via GitHub secrets:
+    SMTP_SERVER
+    SMTP_PORT
+    EMAIL_USERNAME
+    EMAIL_PASSWORD
+    EMAIL_TO
+
+PACKAGE.JSON SCRIPTS:
+- test
+- test:headed
+- test:ui
+- test:api
+- report
+
+CI/CD (GitHub Actions):
+- Checkout code
+- Setup Node
+- Install dependencies
+- Install Playwright browsers
+- Run tests
+- Upload HTML report as artifact
+- Send email with report attachment
+- Must work in Ubuntu runner
+
+ADDITIONAL REQUIREMENTS:
+- Use ignoreHTTPSErrors for API test
+- Provide clear README with:
+    - Local run steps
+    - Headed mode steps
+    - GitHub secrets setup
+    - Email setup instructions
+- Proper .gitignore for Node + Playwright
+- Production-ready clean structure
+
+Finally:
+Generate the complete project and provide it as a downloadable ZIP file.
