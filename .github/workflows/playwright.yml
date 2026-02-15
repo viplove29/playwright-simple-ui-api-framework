@@ -28,9 +28,10 @@ jobs:
       - name: Run Tests
         run: npx playwright test
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          BASE_URL: https://www.saucedemo.com
+          USERNAME: standard_user
+          PASSWORD: secret_sauce
+
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
